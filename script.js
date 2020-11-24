@@ -1,6 +1,6 @@
 /* função para verificar o tamanho da tela */
 
-var altura, largura;
+var altura, largura, vidas;
 
 function ajustarTamanhoTela() {
 
@@ -14,6 +14,27 @@ ajustarTamanhoTela();
 /* cria posições randomicas para a img dentro do tamanho de tela ajustado */
 
 function posicaoRandomica() {
+
+	// remover o mosquito anterior, caso exista
+
+	if (document.getElementById('mosquito')) {
+
+		document.getElementById('mosquito').remove();
+
+		if (vidas > 3) {
+
+			alert('Gamer Over');
+
+		} else {
+
+			var x = document.getElementById('vida' + vidas);
+			x.src = 'img/coracaovazio.png';
+
+			vidas++;
+
+		}
+	}
+
 
 	var posicaoX = Math.floor(Math.random() * largura) - 90;
 	var posicaoY = Math.floor(Math.random() * altura) - 90;
@@ -31,6 +52,13 @@ function posicaoRandomica() {
 	mosquito.style.left = posicaoX + 'px';
 	mosquito.style.top = posicaoY + 'px';
 	mosquito.style.position = 'absolute';
+	mosquito.id = 'mosquito';
+
+	mosquito.onclick = function() {
+
+		this.remove();
+
+	}
 
 	document.body.appendChild(mosquito);
 
@@ -75,3 +103,5 @@ function ladoMosquitoAleatorio() {
 	}
 
 }
+
+
