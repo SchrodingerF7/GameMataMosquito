@@ -10,11 +10,33 @@
   </head>
   <body onresize="ajustarTamanhoJogo()">
 
+  	<div class="painel">
+  		
+  		<div class="vidas">
+
+  			<img id="vida1" src="img/coracao_cheio.png" />
+  			<img id="vida2" src="img/coracao_cheio.png" />
+  			<img id="vida3" src="img/coracao_cheio.png" />
+  			
+  		</div>
+
+  		<div class="cronometro">
+
+  			Tempo restante: ?
+  			
+  		</div>
+
+  	</div>
+
 
 
   	<script>
   		
-  		posicaoRandomica();
+  		setInterval(function() {
+
+  			posicaoRandomica();
+
+  		}, 1000);
 
   	</script>
 
