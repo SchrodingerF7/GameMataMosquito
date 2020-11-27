@@ -1,44 +1,62 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <meta charset="utf-8">
-    <title> Mata-Mosquitos </title>
-    <script src="script.js"></script>
-    <link rel="stylesheet" type="text/css" href="estilo.css">
+		<link rel="stylesheet" href="estilo.css" />
 
-  </head>
-  <body onresize="ajustarTamanhoJogo()">
+		<script>
 
-  	<div class="painel">
-  		
-  		<div class="vidas">
+			function iniciarJogo() {
+				var nivel = document.getElementById('nivel').value;
 
-  			<img id="vida1" src="img/coracao_cheio.png" />
-  			<img id="vida2" src="img/coracao_cheio.png" />
-  			<img id="vida3" src="img/coracao_cheio.png" />
-  			
-  		</div>
+				if(nivel === '') {
+					alert('Selecione um nível para iniciar o jogo');
+					return false;
+				}
 
-  		<div class="cronometro">
+				window.location.href = "jogo.html?" + nivel;
 
-  			Tempo restante: ?
-  			
-  		</div>
+			}
+		</script>
+	</head>
+	<body>
 
-  	</div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="d-flex justify-content-center">
+						<img src="img/game.png" />
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<div class="d-flex justify-content-center">
+						<div class="mb-2">
+							<select class="form-control" id="nivel">
+								<option value="">-- Selecione o nível --</option>
+								<option value="normal">Normal</option>
+								<option value="dificil">Difícil</option>
+								<option value="cacador">Caçador</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
+			<div class="row">
+				<div class="col">
+					<div class="d-flex justify-content-center">
+						<button type="button" class="btn btn-danger btn-lg" onclick="iniciarJogo()" >Iniciar Jogo</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
-  	<script>
-  		
-  		setInterval(function() {
-
-  			posicaoRandomica();
-
-  		}, 1000);
-
-  	</script>
-
-  </body>
+	</body>
 </html>
