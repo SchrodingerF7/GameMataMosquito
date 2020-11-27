@@ -1,6 +1,14 @@
+html {
+
+	cursor: url(img/raquete.png) 30 30, auto; 
+
+}
+
+
 body {
 
 	background-image: url('img/bg.jpg');
+	background-size: cover;
 	background-repeat: no-repeat; 
 
 }
